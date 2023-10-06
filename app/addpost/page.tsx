@@ -4,12 +4,13 @@ import { useRouter } from "next/navigation";
 import { useRef } from "react";
 import { Toaster, toast } from "react-hot-toast";
 import { BiAddToQueue } from "react-icons/bi";
+import { Base_API_URL } from "../utils/constants";
 const addPost = async ({ title, description }: {
     title: string;
     description: string;
 }) => {
 
-    const res = await fetch("/api/blog", {
+    const res = await fetch(`${Base_API_URL}/api/blog`, {
         method: "POST",
         body: JSON.stringify({ title, description }),
         //@ts-ignore

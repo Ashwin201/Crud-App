@@ -4,12 +4,16 @@
 import React from 'react'
 import { BiEdit } from "react-icons/bi";
 import Link from "next/link";
+import { Base_API_URL } from './utils/constants';
 async function fetchPosts() {
-  const res = await fetch("http://localhost:3000/api/blog", { cache: "no-store" })
+  const res = await fetch(`${Base_API_URL}/api/blog`, { cache: "no-store" })
   const data = await res.json();
   return data.posts;
 }
 const Post = async () => {
+  if (!Base_API_URL) {
+    return null;
+  }
   const posts = await fetchPosts();
   return (
     <div>

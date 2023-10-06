@@ -6,6 +6,7 @@ import { RiDeleteBin5Fill } from "react-icons/ri"
 import { useRouter } from "next/navigation";
 import { useRef, useEffect } from "react";
 import { Toaster, toast } from "react-hot-toast";
+import { Base_API_URL } from "@/app/utils/constants";
 
 type UpdatePostParams = {
     title: string;
@@ -14,7 +15,7 @@ type UpdatePostParams = {
 }
 const updatePost = async (data: UpdatePostParams) => {
 
-    const res = await fetch(`/api/blog/${data.id}`, {
+    const res = await fetch(`${Base_API_URL}/api/blog/${data.id}`, {
         method: "PUT",
         body: JSON.stringify({ title: data.title, description: data.description }),
         //@ts-ignore
@@ -25,7 +26,7 @@ const updatePost = async (data: UpdatePostParams) => {
 }
 
 const getPostById = async (id: string) => {
-    const res = await fetch(`/api/blog/${id}`);
+    const res = await fetch(`${Base_API_URL}/api/blog/${id}`);
     const data = await res.json();
     return data.post;
 }
@@ -36,7 +37,7 @@ const getPostById = async (id: string) => {
 // delete
 const deletePost = async (id: string) => {
 
-    const res = await fetch(`/api/blog/${id}`, {
+    const res = await fetch(`${Base_API_URL}/api/blog/${id}`, {
         method: "DELETE",
         //@ts-ignore
         "Content-Type": "application/json"
