@@ -1,4 +1,3 @@
-//eslint-disable
 //@ts-nocheck
 
 import React from 'react'
@@ -6,7 +5,18 @@ import { BiEdit } from "react-icons/bi";
 import Link from "next/link";
 import { Base_API_URL } from './utils/constants';
 async function fetchPosts() {
-  const res = await fetch(`${Base_API_URL}/api/blog`, { cache: "no-store" })
+  const res = await fetch(`${Base_API_URL}/api/blog`, {
+    cache: "no-store",
+    method: "GET",
+    headers: {
+      accept: 'application/json',
+    },
+    //@ts-ignore
+    "Content-Type": "application/json"
+  })
+  if (!res) {
+    throw new Error("Failed to fetch the data.")
+  }
   const data = await res.json();
   return data.posts;
 }

@@ -1,5 +1,4 @@
 "use client";
-//eslint-disable
 import { useRouter } from "next/navigation";
 import { useRef } from "react";
 import { Toaster, toast } from "react-hot-toast";
