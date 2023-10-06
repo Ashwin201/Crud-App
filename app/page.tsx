@@ -4,7 +4,7 @@
 import React from 'react'
 import { BiEdit } from "react-icons/bi";
 import Link from "next/link";
-export async function fetchPosts() {
+async function fetchPosts() {
   const res = await fetch("http://localhost:3000/api/blog", { cache: "no-store" })
   const data = await res.json();
   return data.posts;
