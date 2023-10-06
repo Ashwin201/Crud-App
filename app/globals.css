@@ -2,26 +2,67 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+input,
+textarea,
+button,
+span,
+div,
+a {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+a:focus,
+a:visited,
+a:active,
+span:focus,
+span:visited,
+span:active,
+div:focus,
+div:visited,
+div:active {
+  outline: none;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* hide Scroll bar from chrome, safari and opera */
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* hide Scroll bar from firefox */
+html {
+  scrollbar-width: none;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  overflow-x: hidden;
+  background-color: rgb(246, 249, 252);
+  width: 100vw;
+  /* hide Scroll bar from Edge ,I.E*/
+  -ms-overflow-style: none;
+}
+
+.box {
+  padding: 15px 300px;
+}
+
+@media (max-width: 1200px) {
+  .box {
+    padding: 15px 150px;
+  }
+}
+@media (max-width: 750px) {
+  .box {
+    padding: 15px 50px;
+  }
+}
+@media (max-width: 470px) {
+  .box {
+    padding: 15px 20px;
+  }
 }
