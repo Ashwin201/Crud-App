@@ -1,9 +1,10 @@
 "use client";
+import { Base_API_URL } from "@/utils/constants";
 import { useRouter } from "next/navigation";
 import { useRef } from "react";
 import { Toaster, toast } from "react-hot-toast";
 import { BiAddToQueue } from "react-icons/bi";
-import { Base_API_URL } from "../utils/constants";
+import Link from "next/link";
 const addPost = async ({ title, description }: {
     title: string;
     description: string;
@@ -42,6 +43,7 @@ const AddPost = () => {
     return (
         <div>
             <Toaster />
+
             <form className="  w-full h-full justify-center   flex flex-col w-100 border-2  p-4 md:p-6 rounded-xl" onSubmit={handleSubmit}>
                 <input
                     type="text"
@@ -62,6 +64,10 @@ const AddPost = () => {
                     Add <BiAddToQueue size={20} />
                 </button>
             </form>
+
+
+
+
         </div>
     );
 };

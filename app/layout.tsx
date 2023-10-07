@@ -2,7 +2,6 @@ import Navbar from '@/components/Navbar'
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter, Roboto } from 'next/font/google'
-
 const roboto = Inter({
   weight: '500',
   subsets: ['latin']
