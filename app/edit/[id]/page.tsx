@@ -127,7 +127,7 @@ const Edit = ({ params }: { params: { id: string } }) => {
 
                     className=" absolute left-5 top-[310px] flex gap-2 items-center w-fit px-3 py-1 md:py-2 bg-green-600 text-white font-medium rounded-lg border-2 hover:scale-95 hover:bg-green-700 transition-all duration-300"
                 >
-                    Update<FaRegEdit size={20} />
+                    Update<FaRegEdit size={25} />
                 </button>
 
 
@@ -137,7 +137,7 @@ const Edit = ({ params }: { params: { id: string } }) => {
                 type="submit"
                 className=" absolute right-5 top-[310px] flex gap-2 items-center w-fit px-3 py-1 md:py-2 bg-red-600 text-white font-medium rounded-lg border-2 border-red-600 hover:scale-95 hover:bg-red-800 transition-all duration-300"
             >
-                Delete <RiDeleteBin5Fill size={27} />
+                Delete <RiDeleteBin5Fill size={23} />
             </button>
         </div>
     );
