@@ -13,21 +13,30 @@ type UpdatePostParams = {
     id: string;
 }
 const updatePost = async (data: UpdatePostParams) => {
+    try {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API_URL}/api/blog/${data.id}`, {
+            method: "PUT",
+            body: JSON.stringify({ title: data.title, description: data.description }),
+            //@ts-ignore
+            "Content-Type": "application/json"
+        })
 
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API_URL}/api/blog/${data.id}`, {
-        method: "PUT",
-        body: JSON.stringify({ title: data.title, description: data.description }),
-        //@ts-ignore
-        "Content-Type": "application/json"
-    })
+        return await res.json();
+    }
+    catch (err) {
+        console.log("Error : " + err)
+    }
 
-    return await res.json();
 }
 
 const getPostById = async (id: string) => {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API_URL}/api/blog/${id}`);
-    const data = await res.json();
-    return data.post;
+    try {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API_URL}/api/blog/${id}`);
+        const data = await res.json();
+        return data.post;
+    } catch (err) {
+        console.log("Error : " + err)
+    }
 }
 
 
@@ -35,14 +44,19 @@ const getPostById = async (id: string) => {
 
 // delete
 const deletePost = async (id: string) => {
+    try {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API_URL}/api/blog/${id}`, {
+            method: "DELETE",
+            //@ts-ignore
+            "Content-Type": "application/json"
+        })
 
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API_URL}/api/blog/${id}`, {
-        method: "DELETE",
-        //@ts-ignore
-        "Content-Type": "application/json"
-    })
+        return await res.json();
+    }
+    catch (err) {
+        console.log("Error : " + err)
+    }
 
-    return await res.json();
 }
 
 const Edit = ({ params }: { params: { id: string } }) => {

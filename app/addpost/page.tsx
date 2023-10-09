@@ -8,14 +8,20 @@ const addPost = async ({ title, description }: {
     description: string;
 }) => {
 
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API_URL}/api/blog`, {
-        method: "POST",
-        body: JSON.stringify({ title, description }),
-        //@ts-ignore
-        "Content-Type": "application/json"
-    })
+    try {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API_URL}/api/blog`, {
+            method: "POST",
+            body: JSON.stringify({ title, description }),
+            //@ts-ignore
+            "Content-Type": "application/json"
+        })
 
-    return await res.json();
+        return await res.json();
+    }
+    catch (err) {
+        console.log("Error : " + err)
+    }
+
 }
 
 const AddPost = () => {
