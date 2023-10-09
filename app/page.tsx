@@ -1,10 +1,9 @@
 //@ts-nocheck
 import { BiEdit } from "react-icons/bi";
 import Link from "next/link";
-import { Base_API_URL } from '../utils/constants';
 async function fetchPosts() {
   try {
-    const res = await fetch(`${Base_API_URL}/api/blog/`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API_URL}/api/blog/`, {
       cache: "no-store",
     })
     if (!res) {
@@ -27,7 +26,7 @@ async function fetchPosts() {
 
 const Post = async () => {
 
-  if (!Base_API_URL) {
+  if (!process.env.NEXT_PUBLIC_BASE_API_URL) {
     return null;
   }
   const posts = await fetchPosts();

@@ -1,16 +1,14 @@
 "use client";
-import { Base_API_URL } from "../../utils/constants";
 import { useRouter } from "next/navigation";
 import { useRef } from "react";
 import { Toaster, toast } from "react-hot-toast";
 import { BiAddToQueue } from "react-icons/bi";
-import Link from "next/link";
 const addPost = async ({ title, description }: {
     title: string;
     description: string;
 }) => {
 
-    const res = await fetch(`${Base_API_URL}/api/blog`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API_URL}/api/blog`, {
         method: "POST",
         body: JSON.stringify({ title, description }),
         //@ts-ignore
