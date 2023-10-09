@@ -25,7 +25,7 @@ const Navbar = () => {
                         href={"/addpost"}
                         className="  px-3 ml-3 py-[4px] md:py-[6px] bg-black text-white font-medium rounded-lg border-2 border-white  hover:bg-white  hover:text-black transition-all duration-300"
                     >
-                        Add Topic
+                        Add Post
                     </Link>
 
 
