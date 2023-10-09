@@ -1,5 +1,5 @@
 "use client";
-import { Base_API_URL } from "@/utils/constants";
+import { Base_API_URL } from "../../utils/constants";
 import { useRouter } from "next/navigation";
 import { useRef } from "react";
 import { Toaster, toast } from "react-hot-toast";
@@ -48,11 +48,13 @@ const AddPost = () => {
                 <input
                     type="text"
                     ref={titleRef}
+                    required
                     placeholder="Enter Title"
                     className=" placeholder:text-gray-400 placeholder:m-3 p-3  border-2 border-gray-300  text-gray-600    rounded-lg outline-none"
                 />
                 <textarea
                     rows={7}
+                    required
                     ref={descriptionRef}
                     placeholder="Enter Description"
                     className=" placeholder:text-gray-400 placeholder:m-3  border-2 border-gray-300  p-3 pb-3 my-5 rounded-lg resize-none overflow-hidden outline-none "

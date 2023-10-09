@@ -6,7 +6,7 @@ import { RiDeleteBin5Fill } from "react-icons/ri"
 import { useRouter } from "next/navigation";
 import { useRef, useEffect } from "react";
 import { Toaster, toast } from "react-hot-toast";
-import { Base_API_URL } from "@/utils/constants";
+import { Base_API_URL } from "../../../utils/constants";
 
 type UpdatePostParams = {
     title: string;
